@@ -2,8 +2,11 @@
 #https://github.com/youngseojang01/-opensourceSW/blob/main/template.py
 
 import sys
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.svm import SVC
 
 def load_dataset(dataset_path):
 	#To-Do: Implement this function
@@ -17,14 +20,48 @@ def split_dataset(dataset_df, testset_size):
 
 def decision_tree_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
+	#train the decision tree model
+	dt_cls = DecisionTreeClassifier()
+	dt_cls.fit(X_train, y_train)
 	
+	#evaluate the performances
+	accuracy = accuracy_score(y_test, dt_cls.predict(x_test))
+	precision = precision_score(y_test, dt_cls.predict(x_test))
+	recall = recall_score(y_test, dt_cls.predict(x_test))
 	
+	#return 3 performance metrics
+	return accuracy, precision, recall
 
 def random_forest_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
+	#train the random forest model
+	rf_cls = RandomForestClassifer()
+	rf_cls.fit(x_train, y_train)
+	
+	#evlauate the performances
+	acc = accuracy_score(y_test, rf_cls.predict(x_test))
+	prec = precision_score(y_test, rf_cls.predict(x_test))
+	recall = recall_score(y_test, rf_cls.predict(x_test))
+	
+	#return 3 performance metrics
+	return acc, prec, recall
 
 def svm_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
+	# *since SVM is very sensitive to the scale of each feature, normalize features
+	svm_pipe = make_pipeline(
+		StandardScaler()
+		SVC()
+	)
+	svm_pipe.fit(x_train, y_train)
+	
+	#evlauate the performances
+	acc = accuracy_score(y_test, svm_pipe.predict(x_test))
+	prec = precision_score(y_test, svm_pipe.predict(x_test))
+	recall = recall_score(y_test, svm_pipe.predict(x_test))
+	
+	#return 3 performance metrics
+	return acc, prec, recall
 
 def print_performances(acc, prec, recall):
 	#Do not modify this function!
