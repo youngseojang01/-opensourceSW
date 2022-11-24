@@ -2,9 +2,12 @@
 #https://github.com/youngseojang01/-opensourceSW/blob/main/template.py
 
 import sys
+from sklearn.pipeline import make_pipeline
+from sklearn.ensemble import RandomForestClassifier
 
 def load_dataset(dataset_path):
 	#To-Do: Implement this function
+	
 
 def dataset_stat(dataset_df):	
 	#To-Do: Implement this function
@@ -14,6 +17,8 @@ def split_dataset(dataset_df, testset_size):
 
 def decision_tree_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
+	
+	
 
 def random_forest_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
