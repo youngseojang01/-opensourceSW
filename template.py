@@ -26,7 +26,8 @@ def dataset_stat(dataset_df):
 
 def split_dataset(dataset_df, testset_size):
 	#To-Do: Implement this function
-	x_train, x_test, y_train, y_test = train_test_split(dataset_df, ?, testset_size)
+	n_feats, data, target = dataset_stat(dataset_df)
+	x_train, x_test, y_train, y_test = train_test_split(data, target, testset_size)
 	
 	return x_train, x_test, y_train, y_test
 
