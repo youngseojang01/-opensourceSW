@@ -20,7 +20,7 @@ def load_dataset(dataset_path):
 
 def dataset_stat(dataset_df):	
 	#To-Do: Implement this function
-	n_feats = dataset_df.
+	n_feats = len(dataset_df)
 	n_class0 = dataset_df.count('target' = 0)
 	n_class1 = dataset_df.count('target' = 1)
 	return n_feats, n_class0, n_class1
