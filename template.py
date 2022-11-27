@@ -2,6 +2,8 @@
 #https://github.com/youngseojang01/-opensourceSW/blob/main/template.py
 
 import sys
+import pandas as pd
+from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.ensemble import RandomForestClassifier
@@ -10,13 +12,23 @@ from sklearn.svm import SVC
 
 def load_dataset(dataset_path):
 	#To-Do: Implement this function
+	#load the csv file
+	dataset = pd.read_csv(dataset_path)
 	
+	df = pd.DataFrame(dataset)
+	return df
 
 def dataset_stat(dataset_df):	
 	#To-Do: Implement this function
+	n_feats = dataset_df.
+	
+	return n_feats, n_class0, n_class1
 
 def split_dataset(dataset_df, testset_size):
 	#To-Do: Implement this function
+	x_train, x_test, y_train, y_test = train_test_split(dataset_df, ?, testset_size)
+	
+	return x_train, x_test, y_train, y_test
 
 def decision_tree_train_test(x_train, x_test, y_train, y_test):
 	#To-Do: Implement this function
