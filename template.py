@@ -21,12 +21,14 @@ def load_dataset(dataset_path):
 def dataset_stat(dataset_df):	
 	#To-Do: Implement this function
 	n_feats = dataset_df.
-	
+	n_class0 = dataset_df.count('target' = 0)
+	n_class1 = dataset_df.count('target' = 1)
 	return n_feats, n_class0, n_class1
 
 def split_dataset(dataset_df, testset_size):
 	#To-Do: Implement this function
-	n_feats, data, target = dataset_stat(dataset_df)
+	data = dataset['target' = 0]
+	target = dataset['target'= 1]
 	x_train, x_test, y_train, y_test = train_test_split(data, target, testset_size)
 	
 	return x_train, x_test, y_train, y_test
